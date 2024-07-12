@@ -5,7 +5,6 @@
 - [Kafka Docs](https://kafka.apache.org/documentation/)
 - [Kafka Command-Line Interface (CLI) Tools](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html)
 - [Обзор UI-инструментов для мониторинга и управления кластерами Apache Kafka](https://habr.com/ru/companies/flant/articles/688190/)
-- [Docker Volumes](https://docs.docker.com/storage/volumes/)
 
 ## Quick Start
 
