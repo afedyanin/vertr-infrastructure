@@ -18,8 +18,6 @@ docker run -d -p 9092:9092 apache/kafka:latest
 
 ```
 
-
-
 ### Create topics
 
 ```
