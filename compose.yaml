@@ -1,0 +1,10 @@
+# https://github.com/apache/kafka/blob/trunk/docker/examples/docker-compose-files/single-node/plaintext/docker-compose.yml
+
+version: "2"
+services:
+
+  kafka:
+    image: apache/kafka:latest
+    ports:
+      - "9092:9092"
+
