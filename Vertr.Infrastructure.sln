@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{5E695070-517E-4DA2-8CEB-39A06188B1F9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitlab-ci.yml = .gitlab-ci.yml
+		aspire.md = aspire.md
+		compose.yaml = compose.yaml
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		docker.md = docker.md
+		kafka.md = kafka.md
+		pgsql.md = pgsql.md
+		README.md = README.md
+		redis.md = redis.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9C62E145-8155-45ED-883E-A12FD6CCC931}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vertr.Infrastructure.Kafka", "src\Vertr.Infrastructure.Kafka\Vertr.Infrastructure.Kafka.csproj", "{28E22667-5DA0-4AE5-9C8C-616E295B1207}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{185F38BF-7A47-4F40-B444-0FA0EFBA81A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vertr.Infrastructure.Kafka.Tests", "tests\Vertr.Infrastructure.Kafka.Tests\Vertr.Infrastructure.Kafka.Tests.csproj", "{FDD46365-7090-4C32-AF4A-137F1A821AFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28E22667-5DA0-4AE5-9C8C-616E295B1207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E22667-5DA0-4AE5-9C8C-616E295B1207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E22667-5DA0-4AE5-9C8C-616E295B1207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E22667-5DA0-4AE5-9C8C-616E295B1207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDD46365-7090-4C32-AF4A-137F1A821AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD46365-7090-4C32-AF4A-137F1A821AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD46365-7090-4C32-AF4A-137F1A821AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD46365-7090-4C32-AF4A-137F1A821AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{28E22667-5DA0-4AE5-9C8C-616E295B1207} = {9C62E145-8155-45ED-883E-A12FD6CCC931}
+		{FDD46365-7090-4C32-AF4A-137F1A821AFC} = {185F38BF-7A47-4F40-B444-0FA0EFBA81A0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DBFD473-4C53-45E9-A8F9-3D94B0BC6829}
+	EndGlobalSection
+EndGlobal
