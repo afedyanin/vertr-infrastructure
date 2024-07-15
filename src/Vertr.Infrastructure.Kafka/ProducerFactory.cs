@@ -6,16 +6,14 @@ using Vertr.Infrastructure.Kafka.Abstractions;
 namespace Vertr.Infrastructure.Kafka;
 internal sealed class ProducerFactory : IProducerFactory
 {
-    public ProducerConfig ProducerConfig { get; private set; }
-
     private readonly JsonSerializerOptions _jsonSerializerOptions;
 
-    public ProducerFactory(
-        IOptions<KafkaSettings> kafkaOptions,
-        JsonSerializerOptions? jsonSerializerOptions = null)
+    public ProducerConfig ProducerConfig { get; private set; }
+
+    public ProducerFactory(IOptions<KafkaSettings> kafkaOptions)
     {
         ProducerConfig = kafkaOptions.Value.ProducerSettings;
-        _jsonSerializerOptions = jsonSerializerOptions ?? new JsonSerializerOptions();
+        _jsonSerializerOptions = kafkaOptions.Value.JsonSerializerOptions ?? new JsonSerializerOptions();
     }
 
     public IProducer<TKey, TValue> CreateProducer<TKey, TValue>()

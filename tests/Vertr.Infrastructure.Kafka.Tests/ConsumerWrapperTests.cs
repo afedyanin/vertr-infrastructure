@@ -17,28 +17,38 @@ public class ConsumerWrapperTests : KafkaTestBase
     [Test]
     public void CanCreateConsumerWrapper()
     {
-        var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<Ignore, string>>();
+        var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<string, string>>();
         Assert.That(consumer, Is.Not.Null);
     }
 
     [Test]
     public async Task CanStartConsumerWrapper()
     {
-        var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<Ignore, string>>();
-        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2));
-
-        var t = Task.Run(async () =>
-        {
-            await consumer.Consume(["topic1"], Handle, cts.Token);
-        });
-
-        await t;
+        var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<string, string>>();
+        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        await consumer.Consume([StringTopic], Handle, cts.Token);
         Assert.Pass();
     }
 
-    private Task Handle(ConsumeResult<Ignore, string> result, CancellationToken cancellationToken)
+    [Test]
+    public async Task CanConsumeTypedItems()
     {
-        Console.WriteLine("Inside handler");
+        var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<Guid, SimpleEntity>>();
+        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        await consumer.Consume([TypedTopic], HandleTypedItem, cts.Token);
+        Assert.Pass();
+    }
+
+
+    private Task Handle(ConsumeResult<string, string> result, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"Handle result: Key={result.Message.Key} Value={result.Message.Value}");
+        return Task.CompletedTask;
+    }
+
+    private Task HandleTypedItem(ConsumeResult<Guid, SimpleEntity> result, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"Handle typed result: Key={result.Message.Key} Value={result.Message.Value}");
         return Task.CompletedTask;
     }
 }

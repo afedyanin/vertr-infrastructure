@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Vertr.Infrastructure.Kafka.Abstractions;
 
 namespace Vertr.Infrastructure.Kafka;
-internal sealed class ProducerWrapper<TKey, TValue> : IProducerWrapper<TKey, TValue>, IDisposable
+internal sealed class ProducerWrapper<TKey, TValue> : IProducerWrapper<TKey, TValue>
 {
     private readonly IProducer<TKey, TValue> _producer;
     private readonly ILogger<ProducerWrapper<TKey, TValue>> _logger;
@@ -26,14 +26,14 @@ internal sealed class ProducerWrapper<TKey, TValue> : IProducerWrapper<TKey, TVa
         string topic,
         TKey key,
         TValue value,
-        DateTime timestamp,
-        CancellationToken cancellationToken)
+        DateTime? timestamp = null,
+        CancellationToken cancellationToken = default)
     {
         var message = new Message<TKey, TValue>()
         {
             Key = key,
             Value = value,
-            Timestamp = new Timestamp(timestamp),
+            Timestamp = timestamp.HasValue ? new Timestamp(timestamp.Value) : new Timestamp(DateTime.UtcNow),
         };
 
         _logger.LogDebug($"Start producing message.");

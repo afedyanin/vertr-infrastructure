@@ -7,18 +7,16 @@ using Vertr.Infrastructure.Kafka.Abstractions;
 namespace Vertr.Infrastructure.Kafka;
 internal sealed class ConsumerFactory : IConsumerFactory
 {
-    public ConsumerConfig ConsumerConfig { get; private set; }
-
     private readonly JsonSerializerOptions _jsonSerializerOptions;
 
-    public ConsumerFactory(
-        IOptions<KafkaSettings> kafkaOptions,
-        JsonSerializerOptions? jsonSerializerOptions = null)
+    public ConsumerConfig ConsumerConfig { get; private set; }
+
+    public ConsumerFactory(IOptions<KafkaSettings> kafkaOptions)
     {
         ConsumerConfig = kafkaOptions.Value.ConsumerSettings;
-        Debug.Assert(!string.IsNullOrWhiteSpace(ConsumerConfig.GroupId), "ConsumerGroupId must be specified.");
+        _jsonSerializerOptions = kafkaOptions.Value.JsonSerializerOptions ?? new JsonSerializerOptions();
 
-        _jsonSerializerOptions = jsonSerializerOptions ?? new JsonSerializerOptions();
+        Debug.Assert(!string.IsNullOrWhiteSpace(ConsumerConfig.GroupId), "Consumer GroupId must be specified.");
     }
 
     public IConsumer<TKey, TValue> CreateConsumer<TKey, TValue>()

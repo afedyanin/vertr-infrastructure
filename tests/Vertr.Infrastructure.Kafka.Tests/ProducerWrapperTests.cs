@@ -1,3 +1,4 @@
+using Confluent.Kafka;
 using Microsoft.Extensions.DependencyInjection;
 using Vertr.Infrastructure.Kafka.Abstractions;
 
@@ -16,23 +17,34 @@ public class ProducerWrapperTests : KafkaTestBase
     [Test]
     public void CanCreateProducer()
     {
-        var producer = ServiceProvider.GetRequiredService<IProducerWrapper<string?, string>>();
+        var producer = ServiceProvider.GetRequiredService<IProducerWrapper<string, string>>();
         Assert.That(producer, Is.Not.Null);
     }
 
     [Test]
     public async Task CanProduceMessage()
     {
-        var producer = ServiceProvider.GetRequiredService<IProducerWrapper<string?, string>>();
-        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(20));
-
-        var t = Task.Run(async () =>
+        using (var producer = ServiceProvider.GetRequiredService<IProducerWrapper<string, string>>())
         {
-            await producer.Produce("topic1", "key", "Hello!", DateTime.UtcNow, cts.Token);
-        });
+            var res = await producer.Produce(StringTopic, "key", "Hello!");
 
-        await t;
-        Assert.Pass();
+            Assert.That(res.Status, Is.EqualTo(PersistenceStatus.Persisted));
+        }
+    }
+
+    [Test]
+    public async Task CanProduceTypesMessages()
+    {
+        using (var producer = ServiceProvider.GetRequiredService<IProducerWrapper<Guid, SimpleEntity>>())
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var item = SimpleEntity.Create(i);
+                var res = await producer.Produce(TypedTopic, item.Id, item);
+
+                Assert.That(res.Status, Is.EqualTo(PersistenceStatus.Persisted));
+            }
+        }
     }
 
 }
