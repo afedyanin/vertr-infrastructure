@@ -28,13 +28,12 @@ public abstract class KafkaTestBase
 
         kafkaSettings.ProducerSettings.BootstrapServers = "localhost:9092";
 
-        kafkaSettings.JsonSerializerOptions = jsonSettings;
-
         services.AddKafkaSettings(settings =>
         {
             settings.ConsumerSettings = kafkaSettings.ConsumerSettings;
             settings.ProducerSettings = kafkaSettings.ProducerSettings;
             settings.Topics = kafkaSettings.Topics;
+            settings.JsonSerializerOptions = jsonSettings;
         });
 
         services.AddKafkaProducer<string, string>();
