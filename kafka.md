@@ -78,4 +78,8 @@ https://github.com/confluentinc/confluent-kafka-dotnet
 - [Event-Driven Architecture with Apache Kafka for .NET Developers Part 1 - Event Producer](https://thecloudblog.net/post/event-driven-architecture-with-apache-kafka-for-net-developers-part-1-event-producer/)
 
 
+https://github.com/confluentinc/confluent-kafka-dotnet/tree/master/examples/Web
+https://github.com/confluentinc/confluent-kafka-dotnet/issues/1346
+https://code-maze.com/aspnetcore-using-kafka-in-a-web-api/
+
 
