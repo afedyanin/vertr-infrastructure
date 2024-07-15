@@ -18,9 +18,11 @@ internal sealed class ConsumerWrapper<TKey, TValue> : IConsumerWrapper<TKey, TVa
         _logger = logger;
     }
 
-    public async Task Consume(string[] topics,
+    public async Task Consume(
+        string[] topics,
         Func<ConsumeResult<TKey, TValue>, CancellationToken, Task> handler,
-        CancellationToken stoppingToken
+        bool readFromBegining = false,
+        CancellationToken stoppingToken = default
         )
     {
         _logger.LogInformation($"Start consuming. GroupId={_consumerFactory.ConsumerConfig.GroupId}");
@@ -29,7 +31,7 @@ internal sealed class ConsumerWrapper<TKey, TValue> : IConsumerWrapper<TKey, TVa
         {
             try
             {
-                await StartAsync(topics, handler, stoppingToken);
+                await StartAsync(topics, handler, readFromBegining, stoppingToken);
             }
             catch (OperationCanceledException)
             {
@@ -53,13 +55,15 @@ internal sealed class ConsumerWrapper<TKey, TValue> : IConsumerWrapper<TKey, TVa
         _logger.LogDebug("End consuming.");
     }
 
-    private async Task StartAsync(string[] topics,
+    private async Task StartAsync(
+        string[] topics,
         Func<ConsumeResult<TKey, TValue>, CancellationToken, Task> handler,
+        bool readFromBegining,
         CancellationToken stoppingToken)
     {
         _logger.LogDebug($"Creating consumer.");
 
-        var consumer = _consumerFactory.CreateConsumer<TKey, TValue>();
+        var consumer = _consumerFactory.CreateConsumer<TKey, TValue>(readFromBegining);
 
         try
         {

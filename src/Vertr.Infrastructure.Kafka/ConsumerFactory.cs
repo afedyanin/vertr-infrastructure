@@ -19,7 +19,7 @@ internal sealed class ConsumerFactory : IConsumerFactory
         Debug.Assert(!string.IsNullOrWhiteSpace(ConsumerConfig.GroupId), "Consumer GroupId must be specified.");
     }
 
-    public IConsumer<TKey, TValue> CreateConsumer<TKey, TValue>()
+    public IConsumer<TKey, TValue> CreateConsumer<TKey, TValue>(bool readFromBegining = false)
     {
         var consumerBuilder = new ConsumerBuilder<TKey, TValue>(ConsumerConfig);
 
@@ -29,6 +29,15 @@ internal sealed class ConsumerFactory : IConsumerFactory
         consumerBuilder
             .SetKeyDeserializer(keySerializer)
             .SetValueDeserializer(valueSerializer);
+
+        if (readFromBegining)
+        {
+            consumerBuilder.SetPartitionsAssignedHandler((consumer, partisions) =>
+            {
+                var offsets = partisions.Select(tp => new TopicPartitionOffset(tp, Offset.Beginning));
+                return offsets;
+            });
+        }
 
         var consumer = consumerBuilder.Build();
 

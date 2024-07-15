@@ -26,7 +26,7 @@ public class ConsumerWrapperTests : KafkaTestBase
     {
         var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<string, string>>();
         var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-        await consumer.Consume([StringTopic], Handle, cts.Token);
+        await consumer.Consume([StringTopic], Handle, true, cts.Token);
         Assert.Pass();
     }
 
@@ -35,7 +35,7 @@ public class ConsumerWrapperTests : KafkaTestBase
     {
         var consumer = ServiceProvider.GetRequiredService<IConsumerWrapper<Guid, SimpleEntity>>();
         var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-        await consumer.Consume([TypedTopic], HandleTypedItem, cts.Token);
+        await consumer.Consume([TypedTopic], HandleTypedItem, true, cts.Token);
         Assert.Pass();
     }
 

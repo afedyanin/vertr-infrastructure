@@ -6,6 +6,6 @@ public interface IConsumerFactory
 {
     ConsumerConfig ConsumerConfig { get; }
 
-    IConsumer<TKey, TValue> CreateConsumer<TKey, TValue>();
+    IConsumer<TKey, TValue> CreateConsumer<TKey, TValue>(bool readFromBegining = false);
 }
 
