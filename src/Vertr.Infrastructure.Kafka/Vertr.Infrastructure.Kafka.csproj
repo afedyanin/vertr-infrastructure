@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <Title>Vertr Kafka Client Library</Title>
-    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionPrefix>0.0.2</VersionPrefix>
     <AssemblyName>Vertr.Infrastructure.Kafka</AssemblyName>
     <PackageId>Vertr.Infrastructure.Kafka</PackageId>
     <OutputType>library</OutputType>
