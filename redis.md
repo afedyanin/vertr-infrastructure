@@ -23,3 +23,14 @@ docker run -d --name redisinsight -p 5540:5540 redis/redisinsight:latest
 docker run -d --name redisinsight -p 5540:5540 redis/redisinsight:latest -v redisinsight:/data
 
 ```
+
+## .NET
+
+- [C#/.NET guide](https://redis.io/docs/latest/develop/connect/clients/dotnet/)
+- [NRedisStack](https://github.com/redis/NRedisStack)
+- [Redis OM .NET](https://github.com/redis/redis-om-dotnet)
+
+- [Redis for .NET Developer – Connecting with C#](https://taswar.zeytinsoft.com/redis-for-net-developer-connecting-with-c/)
+- [Redis for .NET Developers – Redis Pub Sub](https://taswar.zeytinsoft.com/redis-pub-sub/)
+- [redis_csharp_netframework](https://github.com/ruzerix/redis_csharp_netframework/tree/main)
+
