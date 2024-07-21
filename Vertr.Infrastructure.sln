@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{5E6950
 		Directory.Build.targets = Directory.Build.targets
 		docker.md = docker.md
 		ef_core.md = ef_core.md
+		git.md = git.md
 		kafka.md = kafka.md
 		pgsql.md = pgsql.md
 		README.md = README.md
