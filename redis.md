@@ -28,9 +28,25 @@ docker run -d --name redisinsight -p 5540:5540 redis/redisinsight:latest -v redi
 
 - [C#/.NET guide](https://redis.io/docs/latest/develop/connect/clients/dotnet/)
 - [NRedisStack](https://github.com/redis/NRedisStack)
+- [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/)
 - [Redis OM .NET](https://github.com/redis/redis-om-dotnet)
 
 - [Redis for .NET Developer – Connecting with C#](https://taswar.zeytinsoft.com/redis-for-net-developer-connecting-with-c/)
 - [Redis for .NET Developers – Redis Pub Sub](https://taswar.zeytinsoft.com/redis-pub-sub/)
 - [redis_csharp_netframework](https://github.com/ruzerix/redis_csharp_netframework/tree/main)
 
+## Timeseries
+
+- [](https://redis.io/blog/redistimeseries-ga-making-4th-dimension-truly-immersive/)
+- [redislabs/redistimeseries](https://hub.docker.com/r/redislabs/redistimeseries)
+- [](https://github.com/RedisTimeSeries)
+- [](https://medium.com/@volkovlabs/forecasting-stocks-and-crypto-prices-using-redis-prophet-and-grafana-b1630638d469)
+
+## Prophet
+
+- https://facebook.github.io/prophet/docs/quick_start.html#python-api
+- https://github.com/facebook/prophet
+- https://medium.com/@cuongduong_35162/facebook-prophet-in-2023-and-beyond-c5086151c138
+- https://neuralprophet.com/
+- https://github.com/ourownstory/neural_prophet
+- 
