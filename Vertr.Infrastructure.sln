@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{5E6950
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitlab-ci.yml = .gitlab-ci.yml
+		artemis.md = artemis.md
 		aspire.md = aspire.md
 		compose.yaml = compose.yaml
 		Directory.Build.props = Directory.Build.props
@@ -28,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{185F38BF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vertr.Infrastructure.Kafka.Tests", "tests\Vertr.Infrastructure.Kafka.Tests\Vertr.Infrastructure.Kafka.Tests.csproj", "{FDD46365-7090-4C32-AF4A-137F1A821AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vertr.Infrastructure.RedisDemo", "tests\Vertr.Infrastructure.RedisDemo\Vertr.Infrastructure.RedisDemo.csproj", "{078FA6DE-0A80-4FEC-946E-2FCD65545F34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vertr.Infrastructure.RedisDemo", "tests\Vertr.Infrastructure.RedisDemo\Vertr.Infrastructure.RedisDemo.csproj", "{078FA6DE-0A80-4FEC-946E-2FCD65545F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
