@@ -7,18 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{5E6950
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitlab-ci.yml = .gitlab-ci.yml
-		artemis.md = artemis.md
-		aspire.md = aspire.md
 		compose.yaml = compose.yaml
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
-		docker.md = docker.md
-		ef_core.md = ef_core.md
-		git.md = git.md
-		kafka.md = kafka.md
-		pgsql.md = pgsql.md
 		README.md = README.md
-		redis.md = redis.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9C62E145-8155-45ED-883E-A12FD6CCC931}"
@@ -30,6 +22,40 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vertr.Infrastructure.Kafka.Tests", "tests\Vertr.Infrastructure.Kafka.Tests\Vertr.Infrastructure.Kafka.Tests.csproj", "{FDD46365-7090-4C32-AF4A-137F1A821AFC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vertr.Infrastructure.RedisDemo", "tests\Vertr.Infrastructure.RedisDemo\Vertr.Infrastructure.RedisDemo.csproj", "{078FA6DE-0A80-4FEC-946E-2FCD65545F34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA6FBFE5-4371-4C55-8087-AE785DB79B63}"
+	ProjectSection(SolutionItems) = preProject
+		docs\architecture.md = docs\architecture.md
+		docs\project.md = docs\project.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{7B19F837-47F7-4341-8F09-6B7974375EC2}"
+	ProjectSection(SolutionItems) = preProject
+		docs\infra\artemis.md = docs\infra\artemis.md
+		docs\infra\aspire.md = docs\infra\aspire.md
+		docs\infra\docker.md = docs\infra\docker.md
+		docs\infra\ef_core.md = docs\infra\ef_core.md
+		docs\infra\git.md = docs\infra\git.md
+		docs\infra\kafka.md = docs\infra\kafka.md
+		docs\infra\marten.md = docs\infra\marten.md
+		docs\infra\pgsql.md = docs\infra\pgsql.md
+		docs\infra\prophet.md = docs\infra\prophet.md
+		docs\infra\redis.md = docs\infra\redis.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{9D4762BA-F9C3-4BF9-9978-376016ADB43A}"
+	ProjectSection(SolutionItems) = preProject
+		docs\services\market-data.md = docs\services\market-data.md
+		docs\services\orders.md = docs\services\orders.md
+		docs\services\positions.md = docs\services\positions.md
+		docs\services\strategies.md = docs\services\strategies.md
+		docs\services\tproxy.md = docs\services\tproxy.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{958DEAD6-14B8-46AA-8C02-60804753FC8F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\app\backlog.md = docs\app\backlog.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +83,9 @@ Global
 		{28E22667-5DA0-4AE5-9C8C-616E295B1207} = {9C62E145-8155-45ED-883E-A12FD6CCC931}
 		{FDD46365-7090-4C32-AF4A-137F1A821AFC} = {185F38BF-7A47-4F40-B444-0FA0EFBA81A0}
 		{078FA6DE-0A80-4FEC-946E-2FCD65545F34} = {185F38BF-7A47-4F40-B444-0FA0EFBA81A0}
+		{7B19F837-47F7-4341-8F09-6B7974375EC2} = {CA6FBFE5-4371-4C55-8087-AE785DB79B63}
+		{9D4762BA-F9C3-4BF9-9978-376016ADB43A} = {CA6FBFE5-4371-4C55-8087-AE785DB79B63}
+		{958DEAD6-14B8-46AA-8C02-60804753FC8F} = {CA6FBFE5-4371-4C55-8087-AE785DB79B63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DBFD473-4C53-45E9-A8F9-3D94B0BC6829}
